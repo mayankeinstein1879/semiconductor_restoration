@@ -1,0 +1,32 @@
+dataset:
+  root: "C:/Users/Mayank Mukherjee/Desktop/Hack/Data-public-20260814T125741Z-1-001/Data-public"
+  train_split: "data/train_split.txt"
+  val_split: "data/val_split.txt"
+  normalize: "standardize"
+  global_mean: 0.432994
+  global_std: 0.202202
+  augment: true
+  num_workers: 0
+
+model:
+  name: "residual_unet"
+  base_channels: 16
+  activation_type: "sigmoid"
+
+training:
+  batch_size: 32
+  epochs: 15
+  learning_rate: 0.0002
+  weight_decay: 0.0001
+  amp: false
+  seed: 42
+
+loss:
+  reconstruction_weight: 1.0
+  ssim_weight: 0.0
+  edge_weight: 0.0
+  perceptual_weight: 0.0
+
+evaluation:
+  save_images: true
+  num_visualizations: 10

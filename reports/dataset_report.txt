@@ -1,0 +1,71 @@
+========================================================
+DATASET FORENSICS REPORT
+========================================================
+Dataset Root: C:/Users/Mayank Mukherjee/Desktop/Hack/Data-public-20260814T125741Z-1-001/Data-public
+
+1. FILE COUNT SUMMARY
+--------------------------------------------------------
+- Total discovered .npy files: 6800 (excluding __MACOSX)
+- Ground Truth (GT) Train files: 3200
+- Noisy Low-Resolution (NoisyLR) Train files: 3200
+- Test Noisy Low-Resolution files: 400
+
+2. PAIRING ANALYSIS
+--------------------------------------------------------
+- Pairing Strategy: Filename match (identical basenames)
+- Status: SUCCESS: All train files correctly paired.
+- Total paired images: 3200
+- Unpaired GT count: 0
+- Unpaired NoisyLR count: 0
+
+3. RESOLUTIONS & DIMENSIONS
+--------------------------------------------------------
+- GT shape distribution: {'(256, 256)': 3200}
+- NoisyLR shape distribution: {'(128, 128)': 3200}
+- Test NoisyLR shape distribution: {'(128, 128)': 400}
+- Unique Resolution Mapping: (128, 128) -> (256, 256)
+- Scale factor: 2.0x (Width and Height)
+
+4. PIXEL STATISTICS (Sampled)
+--------------------------------------------------------
+Ground Truth (GT):
+- Dtype: float32
+- Min range: [0.0, 0.0]
+- Max range: [1.0, 1.0]
+- Mean range: [0.07945946604013443, 0.9168739318847656]
+- Std range: [0.046348948031663895, 0.4324558675289154]
+- Global Mean: 0.432954
+- Global Std: 0.184340
+
+Train NoisyLR:
+- Dtype: float32
+- Min range: [-0.10646283626556396, 0.15508632361888885] (values < 0 are present!)
+- Max range: [0.6919944882392883, 2.000929832458496] (values > 1 are present!)
+- Mean range: [0.07969745248556137, 0.9172585010528564]
+- Std range: [0.06433378905057907, 0.4505005180835724]
+- Global Mean: 0.432994
+- Global Std: 0.202202
+
+Test NoisyLR:
+- Dtype: float32
+- Min range: [-0.20278580486774445, 0.12650372087955475] (values < 0 are present!)
+- Max range: [1.069275975227356, 1.9805463552474976] (values > 1 are present!)
+- Mean range: [0.03324538469314575, 0.8336964845657349]
+- Std range: [0.04513079300522804, 0.4101879894733429]
+- Global Mean: 0.451965
+- Global Std: 0.224182
+
+========================================================
+CONCLUSION & RECOMMENDATIONS
+========================================================
+1. INPUT RANGE HANDLING:
+   - Degraded inputs range from approximately -0.2028 to 2.0009.
+   - Ground truth is strictly normalized in [0, 1].
+   - DO NOT CLIP degraded inputs before passing them to the model.
+   - Recommended preprocessing is dataset-global standardization using global train stats:
+     Mean: 0.432994
+     Std: 0.202202
+
+2. RESOLUTION RESOLVING:
+   - The task is a combined 2x Super-Resolution and denoising task.
+   - U-Net structures must include a 2x upsampling layer at the end or before residual summation.

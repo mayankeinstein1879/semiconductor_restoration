@@ -1,0 +1,22 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Intermediate experiments logs, CSVs, and model weights
+experiments/
+
+# Temporary data generated during pipeline test runs
+temp_test_data/
+reports/reproducibility_test_outputs/
+reports/final_test_outputs/
+reports/final_test_visualizations/
+reports/unseen_test/
+
+# Operating system files
+.DS_Store
+Thumbs.db

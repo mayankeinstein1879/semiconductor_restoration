@@ -1,0 +1,89 @@
+{
+    "dataset_root": "C:/Users/Mayank Mukherjee/Desktop/Hack/Data-public-20260814T125741Z-1-001/Data-public",
+    "counts": {
+        "total_npy": 6800,
+        "gt": 3200,
+        "train_noisy": 3200,
+        "test_noisy": 400
+    },
+    "pairing": {
+        "paired_count": 3200,
+        "unpaired_gt_count": 0,
+        "unpaired_noisy_count": 0,
+        "strategy": "Filename match (identical basenames)",
+        "status": "SUCCESS: All train files correctly paired."
+    },
+    "shapes": {
+        "gt_shapes_distribution": {
+            "(256, 256)": 3200
+        },
+        "lr_shapes_distribution": {
+            "(128, 128)": 3200
+        },
+        "test_shapes_distribution": {
+            "(128, 128)": 400
+        }
+    },
+    "statistics": {
+        "gt": {
+            "min_range": [
+                0.0,
+                0.0
+            ],
+            "max_range": [
+                1.0,
+                1.0
+            ],
+            "mean_range": [
+                0.07945946604013443,
+                0.9168739318847656
+            ],
+            "std_range": [
+                0.046348948031663895,
+                0.4324558675289154
+            ],
+            "global_avg_mean": 0.4329538201913238,
+            "global_avg_std": 0.18433959010988474
+        },
+        "train_noisy": {
+            "min_range": [
+                -0.10646283626556396,
+                0.15508632361888885
+            ],
+            "max_range": [
+                0.6919944882392883,
+                2.000929832458496
+            ],
+            "mean_range": [
+                0.07969745248556137,
+                0.9172585010528564
+            ],
+            "std_range": [
+                0.06433378905057907,
+                0.4505005180835724
+            ],
+            "global_avg_mean": 0.4329941541701555,
+            "global_avg_std": 0.2022023878991604
+        },
+        "test_noisy": {
+            "min_range": [
+                -0.20278580486774445,
+                0.12650372087955475
+            ],
+            "max_range": [
+                1.069275975227356,
+                1.9805463552474976
+            ],
+            "mean_range": [
+                0.03324538469314575,
+                0.8336964845657349
+            ],
+            "std_range": [
+                0.04513079300522804,
+                0.4101879894733429
+            ],
+            "global_avg_mean": 0.45196532882750035,
+            "global_avg_std": 0.22418153304606675
+        }
+    }
+}
